@@ -2,11 +2,14 @@
 if (!defined('_GNUBOARD_')) exit;
 ?>
     <!-- 본문 내용 끝 -->
+
+    <footer id="admin-footer">
+        <P>Copyright &copy; 2025 WAVEDREAM. All rights reserved.</P>
+    </footer>
+</main>
 </div>
 
-<footer class="text-center mt-4 mb-4 text-muted">
-    <small>Copyright &copy; 2025 WAVEDREAM. All rights reserved.</small>
-</footer>
+
 
 </body>
 </html>

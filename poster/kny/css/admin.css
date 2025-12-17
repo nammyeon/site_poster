@@ -1,0 +1,82 @@
+body {background: #f8f8f8;}
+
+#admin-wrapper {display: flex;align-items: flex-start;position: relative;}
+
+
+
+#admin-sidebar {display: flex;flex-direction: column;position: sticky;top: 0;left: 0;width: 260px;height: 100vh; padding: 30px 10px 10px; background: #2c3e50;overflow-y: auto;transition: .4s;}
+.admin-sidebar__head {display: flex;align-items: center;justify-content: space-between; padding: 0 0 20px; margin: 0 0 10px;border-bottom: 1px solid #577899;}
+.admin-sidebar__head-logo {overflow: hidden;}
+.admin-sidebar__head-logo > a {display: block;}
+.admin-sidebar__head-logo > a > img {width: 170px;max-width: max-content;}
+.admin-sidebar__head-toggle {display: block;width: 30px;height: 30px; margin-left: auto; border-radius: 5px;color: #fff;text-align: center;}
+.admin-sidebar__head-toggle:hover {background: #577899;}
+.admin-sidebar__head-toggle-close {}
+.admin-sidebar__head-toggle-open {display: none;}
+.admin-sidebar__head-toggle.on {}
+.admin-sidebar__head-toggle svg {width: 100%;vertical-align: middle;transform: translateY(-3px);;stroke-width: 2px;}
+.admin-sidebar__logo {}
+.admin-sidebar__logo > img {}
+.admin-sidebar__menu {overflow: hidden;}
+.admin-sidebar__menu > ul {position: relative;margin-bottom: 10px;padding-bottom: 10px;}
+.admin-sidebar__menu > ul:after {content: "";position: absolute;bottom: 0;left: 0;width: 100%;height: 1px;background: #577899;}
+.admin-sidebar__menu > ul > li {margin-bottom: 5px; border-radius: 5px;color: #fff;transition: .2s;}
+.admin-sidebar__menu > ul > li:hover {background: #577899;}
+.admin-sidebar__menu > ul > li > a {display: flex;align-items: center;gap: 12px; padding: 10px 10px;font-size: 16px;font-weight: 500;white-space: nowrap;}
+.admin-sidebar__menu > ul > li > a > span {display: block;}
+.admin-sidebar__menu > ul > li > a > span > svg {vertical-align: middle;}
+.admin-sidebar__menu-icon > svg {width: 26px;}
+.admin-sidebar__menu-arrow {margin-left: auto;}
+.admin-sidebar__menu-arrow > svg {width: 16px;}
+.admin-sidebar__logout {margin-top: auto; border-radius: 5px;background: #1a252f;color: #fff;}
+.admin-sidebar__logout > a {display: flex;align-items: center;gap: 12px; padding: 10px 10px;font-size: 16px;font-weight: 500;white-space: nowrap;}
+.admin-sidebar__logout > a > span {display: block;}
+.admin-sidebar__logout > a > span > svg {width: 26px;vertical-align: middle;}
+
+#admin-sidebar.close {width: 63px;}
+#admin-sidebar.close .admin-sidebar__head-logo {display: none;}
+#admin-sidebar.close .admin-sidebar__head-toggle {margin: 0 auto;}
+#admin-sidebar.close .admin-sidebar__head-toggle-close {display: none;}
+#admin-sidebar.close .admin-sidebar__head-toggle-open {display: block;}
+#admin-sidebar.close .admin-sidebar__menu > ul > li > a {font-size: 0;}
+#admin-sidebar.close .admin-sidebar__menu-arrow {display: none;}
+#admin-sidebar.close .admin-sidebar__logout > a {font-size: 0;}
+
+
+#admin-main {width: calc(100% - 260px); min-height: 100vh;padding: 30px 30px;}
+#admin-main.nav-close {width: calc(100% - 63px);}
+.admin-content {min-height: 80vh;margin: 0 auto; padding: 50px 30px; border: 1px solid #ddd;border-radius: 10px;background: #fff;box-shadow: 0 0 10px rgba(0,0,0,.1);}
+.admin-content__title {margin-bottom: 30px;font-size: 30px;font-weight: 700;}
+
+
+#admin-footer {font-size: 14px;color: #777;text-align: center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 포스터 등록 */
+.poster-write {max-width: 800px;}
+.poster-write {}
+.poster-write__content {padding-bottom: 20px;margin-bottom: 30px;border-bottom: 1px solid var(--color-border);}
+.poster-write__content-title {font-size: 18px;font-weight: 700;margin-bottom: 20px;}
+.poster-write__upload-help {margin-bottom: 18px;padding: 15px;background: #f5f5f5;border-radius: 5px;}
+.poster-write__upload-help > li {font-size: 13px;line-height: 1.4;}
+.poster-write__upload-help > li.essential {color: #df1313;}
+.poster-write__upload-help > li strong {font-weight: 700;}
+.poster-write__upload-file {}
+.poster-write__upload-file-item {padding: 10px; margin-bottom: 10px;border: 1px solid var(--color-border);border-radius: 5px;}
+.poster-write__upload-file-item > p {margin-bottom: 8px;font-size: 14px;}
+.poster-write__upload-file-item > p > strong {font-weight: 700;color: #df1313;}
+.poster-write__upload-file-item-input {display: flex;align-items: center;justify-content: space-between;font-size: 13px;}
+.poster-write__upload-file-item-input > input[type="file"] {}
+.poster-write__upload-file-item-input > span {text-align: right;}

@@ -1,0 +1,197 @@
+:root {
+    --font-normal: 'Pretendard', sans-serif;
+    --font-serif: 'NotoSerif', serif;
+        --color-primary: #0057FF;
+    --color-secondary: #40609D;
+    --color-sub-01: #F0F7FF;
+    
+    
+    --layout-padding: 0;
+    --color-border: #ddd;
+}
+
+
+@media all and (max-width:1240px) {
+    :root {
+        --layout-padding: 20px;
+    }
+}
+
+@media all and (max-width:768px) {
+    :root {
+        --layout-padding: 16px;
+    }
+}
+
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard/Pretendard-Thin.subset.woff') format('woff'), url('../font/Pretendard/Pretendard-Thin.subset.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard/Pretendard-ExtraLight.subset.woff') format('woff'), url('../font/Pretendard/Pretendard-ExtraLight.subset.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard/Pretendard-Light.subset.woff') format('woff'), url('../font/Pretendard/Pretendard-Light.subset.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard/Pretendard-Regular.subset.woff') format('woff'), url('../font/Pretendard/Pretendard-Regular.subset.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard/Pretendard-Medium.subset.woff') format('woff'), url('../font/Pretendard/Pretendard-Medium.subset.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard/Pretendard-SemiBold.subset.woff') format('woff'), url('../font/Pretendard/Pretendard-SemiBold.subset.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard/Pretendard-Bold.subset.woff') format('woff'), url('../font/Pretendard/Pretendard-Bold.subset.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src:  url('../font/Pretendard/Pretendard-ExtraBold.subset.woff') format('woff'),url('../font/Pretendard/Pretendard-ExtraBold.subset.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard/Pretendard-Black.subset.woff') format('woff'), url('../font/Pretendard/Pretendard-Black.subset.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'NotoSerif';
+    src: url('../font/NotoSerif/NotoSerifKR-ExtraLight.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NotoSerif';
+    src: url('../font/NotoSerif/NotoSerifKR-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NotoSerif';
+    src: url('../font/NotoSerif/NotoSerifKR-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NotoSerif';
+    src: url('../font/NotoSerif/NotoSerifKR-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NotoSerif';
+    src: url('../font/NotoSerif/NotoSerifKR-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NotoSerif';
+    src: url('../font/NotoSerif/NotoSerifKR-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NotoSerif';
+    src: url('../font/NotoSerif/NotoSerifKR-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NotoSerif';
+    src: url('../font/NotoSerif/NotoSerifKR-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+
+/* 
+======= 전체 페이지에 적용 될 CSS =======
+*/
+body.hold {overflow: hidden;}
+body.loading {opacity: 0; overflow: hidden;}
+
+input[type="number"], input[type="text"], input[type="button"], input[type="password"], input[type="email"], textarea {width: 100%;border: 1px solid var(--color-border); border-radius: 5px;font-size: 13px;}
+input[type="number"], input[type="text"], input[type="button"], input[type="password"], input[type="email"], input[type="date"] {height: 35px;padding: 0 8px;}
+input[type="radio"] {}
+input[type="radio"]:checked {}
+input[type="checkbox"] {width: 18px;height: 18px; border: 1px solid var(--color-border); border-radius: 5px;}
+input[type="checkbox"]:checked {background: var(--color-primary) url(../image/common/icon_check_w.svg) no-repeat center center / cover;}
+input:disabled,
+textarea:disabled {background-color: #f7f7f7;color: #777;}
+input[readonly],
+textarea[readonly] {background-color: #f7f7f7;color: #777;}
+select {width: 100%;height: 35px;padding: 0 8px;border: 1px solid var(--color-border); border-radius: 5px; font-size: 13px;}
+textarea {padding: 8px 8px;height: 110px;}
+label {font-size: 14px; font-weight: 500;}
+fieldset {margin: 0;border: 0;padding: 0;}
+/*ios대응*/
+input{appearance: none;-webkit-appearance: none;-webkit-border-radius: 0;background: #fff; color: #1a1a1a;}
+select{background: #fff;color: #1a1a1a;}
+
+h1, h2, h3, h4, h5, h6 {font-size:inherit;font-family:var(--font-normal);}
+
+
+
+.page {padding: 60px 0; min-height: 80vh;}
+.page-title {margin-bottom: 50px;}
+.page-title > h2 {font-size: 50px;font-weight: 700;}
+.page-title .warning {font-size: 16px;font-weight: 500;color: #ff0000;}
+.page-empty {padding: 50px 0 100px;text-align: center;}
+.page-empty .icon {display: block;width: 50px;margin: 0 auto 20px;}
+.page-empty .icon > svg {stroke: #f00;}
+.page-empty > h3 {margin-bottom: 20px;font-size: 30px;font-weight: 700;}
+.page-empty > p {font-size: 20px;color: #777;}
+
+.popup__notice {position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: max-content;max-width: 90%; padding: 12px 30px;border-radius: 7px;background: #ffbbbb; text-align: center;font-size: 16px;font-weight: 500;color: #000;opacity: 0;visibility: hidden;transition: .4s;z-index: 10;}
+.popup__notice.on {opacity: 1;visibility: visible;}
+
+.form-item {display: flex;margin-bottom: 15px;}
+.form-item__title {width: 102px;padding: 10px 0;font-size: 14px;font-weight: 500;}
+.form-item__cont {width: calc(100% - 102px);}
+.form-item__cont-help {margin-top: 8px;font-size: 13px;color: #777;}
+
+
+
+table {width: 100%;border-collapse: collapse;}
+table th,
+table td {padding: 8px;font-size: 13px;border: 1px solid #ddd;}
+table th {background: #f8f8f8;}
+table td {}
+table td .help {font-size: 12px;color: #777;margin-top: 8px;}
