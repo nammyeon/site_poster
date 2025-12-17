@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>혈당 시험지 광고</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            border: 2px solid #d4c9ff;
+            border-radius: 10px;
+            background-color: #fff;
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #6c5ce7;
+            margin-bottom: 20px;
+        }
+        .box {
+            background-color: #d4c9ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .box p {
+            font-size: 1.2em;
+            color: #333;
+            margin: 0 0 15px 0;
+        }
+        .input-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .input-table td {
+            text-align: center;
+        }
+        textarea {
+            width: 90%;
+            height: 100px;
+            resize: none;
+            border: 1px solid #d4c9ff;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1em;
+        }
+        #posterHours span {
+            background-color: #fff0f6; /* 배경색 지정 (예: 연한 분홍색) */
+            padding: 5px 10px; /* 텍스트 주변에 패딩 추가 */
+            border-radius: 5px; /* 둥근 모서리 */
+            margin: 0 5px; /* 텍스트 간 간격 */
+            display: inline-block; /* 줄바꿈 방지 및 배경 적용 */
+        }
+        .highlight {
+            font-size: 1em;
+            color: #6c5ce7;
+            margin-bottom: 20px;
+        }
+        .image {
+            width: 100%;
+            height: auto;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">당뇨소모품</div>
+        <div class="box">
+            <p>인슐린 주사 사용자는 본인</p>
+            <table class="input-table">
+                <tr>
+                    <td><textarea id="hours" name="hours" oninput="updatePoster(); updateHiddenDesign();" required>혈당 시험지
+주삿바늘
+채혈침</textarea></td>
+                </tr>
+            </table>
+            <p id="posterHours"></p>
+        </div>
+        <p class="highlight">구매 시 90% 지원받을 수 있습니다.</p>
+        <img src="your-image-url.jpg" alt="혈당 측정 이미지" class="image">
+    </div>
+
+    <script>
+        function updatePoster() {
+            const textarea = document.getElementById('hours');
+            const posterHours = document.getElementById('posterHours');
+            const lines = textarea.value.split('\n').filter(line => line.trim() !== '');
+            posterHours.innerHTML = lines.map(line => `<span>${line}</span>`).join('<br>');
+        }
+
+        function updateHiddenDesign() {
+            // 이 함수는 추가적인 숨겨진 디자인 업데이트가 필요하면 구현하세요.
+        }
+    </script>
+</body>
+</html>

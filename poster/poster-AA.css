@@ -1,0 +1,522 @@
+/* 전체 스타일 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgba(194, 194, 194, 0.5);
+    color: #1a202c;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* 상단 링크 스타일 */
+.top-bar {
+    background: #ffffff;
+    padding: 10px;
+    text-align: right;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 20;
+}
+
+.top-bar a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.top-bar a:hover {
+    color: #1d4ed8;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px; /* 전체 콘텐츠 최대 너비 설정 */
+    margin: 0 auto;
+    display: flex; /* Make wrapper a flex container */
+    flex-direction: column; /* Default to column for smaller screens initially */
+    align-items: center; /* Center items when stacked */
+    justify-content: center; /* Center horizontally for single column */
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem; /* 섹션 간 간격 */
+    order: 0; /* Default order */
+}
+
+.design-selector-wrapper {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 25px 0;
+}
+
+.design-selector-group {
+    display: inline-block;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.design-label {
+    display: inline-block;
+    padding: 6px 25px;
+    color: #fff;
+    cursor: pointer;
+    background: inherit; /* Ensure no inline style overrides this */
+}
+
+.design-label:hover {
+    background: #39c2ff !important; /* Force the hover effect */
+}
+
+.design-radio {
+    display: none;
+}
+
+.professional-title {
+    text-align: center;
+    color: #005b96;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+    padding: 20px 0;
+}
+
+h2 {
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding: 0 20px;
+}
+
+.design-selector {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.designs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 0 5px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #005b96 #f8f9fa;
+    width: 100%;
+}
+
+.designs::-webkit-scrollbar {
+    height: 6px;
+}
+
+.designs::-webkit-scrollbar-thumb {
+    background: #005b96;
+    border-radius: 3px;
+}
+
+.designs::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.designs img {
+    width: 80px;
+    aspect-ratio: 1080 / 1610;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: border 0.3s ease;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin: 0 5px;
+}
+
+.designs img:hover, .designs img.selected {
+    border: 2px solid #005b96;
+}
+
+.info-input {
+    padding: 0 20px 30px;
+}
+
+.info-input table {
+    width: 100%;
+    border-spacing: 0 2px;
+}
+
+.info-input td {
+    padding: 6px 0;
+    vertical-align: middle;
+}
+
+.info-input label {
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.info-input input, .info-input textarea, .info-input select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.info-input textarea {
+    height: 80px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.info-input input:focus, .info-input textarea:focus, .info-input select:focus {
+    border-color: #005b96;
+    outline: none;
+}
+
+.name-style-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Increased gap for better spacing between elements */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.name-style-group label {
+    margin-right: 5px; /* Space between label and color picker */
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+.info-input #nameColor, .info-input #hoursColor {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.info-input #nameSize {
+    display: none; /* Ensure font size select is hidden */
+}
+
+.poster-preview {
+    padding: 0 20px 30px;
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    order: -1; /* Move poster-preview to the top on mobile by default */
+    margin-bottom: 2rem; /* Add some space below the preview */
+}
+
+.monitor-frame {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.poster {
+    position: relative;
+    width: 360px;
+    height: 534px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+#posterText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    line-height: normal;
+}
+
+#posterName, #posterHours, #posterContact, #posterExtra {
+    position: absolute;
+    font-weight: 500;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Default positions (revert to original) */
+#posterName { top: 7%; left: 50%; transform: translateX(-50%); font-weight: 900; }
+#posterHours { top: 50.5%; left: 33%; text-align: left; }
+#posterContact { top: 65.2%; left: 33%; text-align: left; }
+#posterExtra { top: 75.2%; left: 33%; text-align: left; }
+
+/* Design-specific positioning (override defaults) */
+.design-type-A #posterName { top: 10%; left: 50%; transform: translateX(-50%); }
+.design-type-A #posterHours { top: 52%; left: 35%; }
+.design-type-A #posterContact { top: 65.5%; left: 35%; }
+
+.design-type-B #posterName { top: 12%; left: 50%; transform: translateX(-50%); text-align:right}
+.design-type-B #posterHours { top: 85%; left: 5%; text-align:center }
+.design-type-B #posterContact { top: 75%; left: 5%; text-align:center; font-weight:900}
+
+.design-type-C #posterName { top: 21%; left: 50%; transform: translateX(-50%); }
+.design-type-C #posterHours { top: 47%; left: 5%;  text-align:center;font-weight: 900; }
+.design-type-C #posterContact { top: 35%; left: 5%;  text-align:center;font-weight: 900; }
+
+.design-type-D #posterName { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; }
+.design-type-D #posterHours { top: 32%; left: 5%;  text-align:center;font-weight: 900; }
+.design-type-D #posterContact { top: 73%; left: 22%;  text-align:center;font-weight: 900; }
+
+.design-type-E #posterName { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; }
+.design-type-E #posterHours { top: 30%; left: 5%;  text-align:center;font-weight: 900; }
+.design-type-E #posterContact { top: 79%; left: 5%; text-align: center; font-weight: 900; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; display:none}
+
+.design-type-F #posterName { top: 10%; left: 50%; transform: translateX(-50%); }
+.design-type-F #posterHours { top: 31%; left: 5%;  text-align:center;font-weight: 900;line-height:1.8em;}
+.design-type-F #posterContact { top: 30%; left: 5%;  text-align:center;}
+.design-type-F #posterExtra { top: 60%; left: 5%;  text-align:center;}
+
+.design-type-G #posterName { top: 10%; left: 50%; transform: translateX(-50%); }
+.design-type-G #posterHours { top: 40%; left: 5%;  text-align:center;font-weight: 900; line-height:34px;}
+.design-type-G #posterContact { top: 23%; left: 5%;  text-align:center; }
+
+.design-type-H #posterName { top: 10%; left: 50%; transform: translateX(-50%); }
+.design-type-H #posterHours { top: 28%; left: 5%;  text-align:center;font-weight: 900; line-height:40px;}
+
+.preview-notice {
+    font-size: 14px;
+    color: #d9534f;
+    margin: -10px 0 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+    padding: 0 5px;
+}
+
+button {
+    padding: 8px 16px;
+    background: #0057ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #39c2ff;
+}
+
+button.reset {
+    background: #0057ff;
+}
+
+button.reset:hover {
+    background: #39c2ff;
+}
+
+/* --- Media Query for Mobile and Tablet (max-width: 768px) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        padding-bottom: 30px; /* Ensure space for fixed navbar */
+    }
+
+    .wrapper {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items when stacked */
+        gap: 0; /* Remove gap if previously set for horizontal layout */
+    }
+
+    .container {
+        order: 0; /* Keep default order for container */
+        width: 100%; /* Make container take full width */
+        max-width: 500px; /* Limit max width for readability */
+        padding: 0;
+        margin: 0; /* Remove top/bottom margin from container if set elsewhere */
+        border-radius: 0; /* Remove border-radius for full width sections */
+        box-shadow: none; /* Remove box-shadow */
+    }
+
+    .design-selector-wrapper {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .design-selector-group {
+        display: flex; /* Use flexbox for the design selection buttons */
+        flex-wrap: wrap; /* Allow buttons to wrap */
+        justify-content: center;
+        gap: 10px; /* Space between design selection buttons */
+        width: 100%; /* Ensure group takes full width to center effectively */
+    }
+
+    /* 디자인 선택 버튼 (design-label) 크기 조정 */
+    .design-label {
+        padding: 5px 15px; /* 모바일에서 패딩을 줄여 버튼 크기 축소 */
+        font-size: 14px; /* 폰트 크기 조정 */
+    }
+    #design_select {
+        padding: 0px; /* 'A, B, C' 텍스트 자체의 패딩 조정 */
+    }
+
+    .professional-title {
+        font-size: 28px;
+        padding: 15px 0;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding: 0 15px;
+    }
+
+    .design-selector {
+        padding: 10px 15px;
+    }
+
+    .designs {
+        padding: 0 5px 10px;
+    }
+
+    .designs img {
+        width: 60px; /* Adjust image size for mobile */
+        margin: 0;
+    }
+
+    .info-input {
+        padding: 0 15px 30px; /* Adjust padding for info input on smaller screens */
+    }
+
+    .poster-preview {
+        order: -1; /* Move poster-preview to the top */
+        margin-bottom: 30px; /* Increase bottom margin for separation */
+        padding: 0; /* Remove internal padding if set for larger screens */
+        padding-bottom: 30px; /* Additional internal padding for content within preview */
+        border-radius: 0; /* Remove border-radius for full width sections */
+        box-shadow: none; /* Remove box-shadow */
+    }
+
+    .poster {
+        width: 100%;
+        height: auto;
+        max-width: 360px; /* Maximum width for the poster within the preview */
+        aspect-ratio: 1080 / 1610;
+    }
+
+    .button-group {
+        padding: 0 5px;
+    }
+
+    /* 디자인별 포스터 텍스트 위치 조정 (모바일) */
+    #posterName { top: 7%; left: 50%; transform: translateX(-50%); }
+    #posterHours { top: 50.5%; left: 33%; }
+    #posterContact { top: 65.2%; left: 33%; }
+
+    .design-type-A #posterName { top: 10%; }
+    .design-type-A #posterHours { top: 53%; left: 35%; }
+    .design-type-A #posterContact { top: 66%; left: 35%; }
+
+    .design-type-B #posterName { top: 12%; left: 50%; transform: translateX(-50%); }
+    .design-type-B #posterHours { top: 85%; left: 5%; text-align:center }
+    .design-type-B #posterContact { top: 75%; left: 5%; text-align:center; font-weight:900}
+
+    .design-type-C #posterName { top: 21%; }
+    .design-type-C #posterHours { top: 47%; left: 5%;  text-align:center }
+    .design-type-C #posterContact { top: 35%; left: 5%;  text-align:center;font-weight: 900;}
+
+    .design-type-D #posterName { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; }
+    .design-type-D #posterHours { top: 32%; left: 5%;  text-align:center;font-weight: 900; }
+    .design-type-D #posterContact { top: 73%; left: 22%;  text-align:center;font-weight: 900; }
+
+    .design-type-E #posterName { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; }
+    .design-type-E #posterHours { top: 30%; left: 5%;  text-align:center;font-weight: 900; }
+    .design-type-E #posterContact { top: 79%; left: 5%; text-align: center; font-weight: 900; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; display:none} /* display:none 유지 */
+
+    .design-type-F #posterName { top: 10%; left: 50%; transform: translateX(-50%); }
+    .design-type-F #posterHours { top: 31%; left: 5%;  text-align:center;font-weight: 900;line-height:1.8em;}
+    .design-type-F #posterContact { top: 30%; left: 5%;  text-align:center;font-weight: 900; }
+    .design-type-F #posterExtra { top: 60%; left: 5%;  text-align:center;}
+
+    .design-type-G #posterName { top: 10%; left: 50%; transform: translateX(-50%); }
+    .design-type-G #posterHours { top: 40%; left: 5%;  text-align:center;font-weight: 900; line-height:34px;}
+    .design-type-G #posterContact { top: 23%; left: 5%;  text-align:center; }
+
+    .design-type-H #posterName { top: 10%; left: 50%; transform: translateX(-50%); }
+    .design-type-H #posterHours { top: 28%; left: 5%;  text-align:center;font-weight: 900; line-height:40px;}
+}
+
+
+/* 1024px 이상에서 레이아웃 변경 (Larger screens) */
+@media (min-width: 1024px) {
+    .wrapper {
+        flex-direction: row; /* Layout items horizontally */
+        justify-content: center; /* Center items horizontally */
+        align-items: flex-start; /* Align items to the top */
+        gap: 30px; /* Space between the two main sections */
+    }
+
+    .container {
+        flex: 1; /* Allow container to grow */
+        max-width: 500px;
+        margin-bottom: 0; /* Remove margin-bottom on larger screens */
+        order: 0; /* Ensure container is on the left (default order) */
+    }
+
+    .poster-preview {
+        flex: 1; /* Allow poster-preview to grow */
+        max-width: 500px;
+        margin-bottom: 0; /* Remove margin-bottom on larger screens */
+        padding-top: 45px; /* Adjust top padding for alignment with .container */
+        order: 1; /* Ensure poster-preview is on the right (after container) */
+    }
+
+    .poster {
+        width: 100%;
+        height: auto;
+        max-width: 360px;
+        aspect-ratio: 1080 / 1610;
+    }
+}

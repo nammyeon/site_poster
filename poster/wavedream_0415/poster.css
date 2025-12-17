@@ -1,0 +1,469 @@
+/* 전체 스타일 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgba(194, 194, 194, 0.5);
+    color: #1a202c;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* 상단 링크 스타일 */
+.top-bar {
+    background: #ffffff;
+    padding: 10px;
+    text-align: right;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 20;
+}
+
+.top-bar a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.top-bar a:hover {
+    color: #1d4ed8;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px; /* 전체 콘텐츠 최대 너비 설정 */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 1024px 미만에서 가운데 정렬 */
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem; /* 섹션 간 간격 */
+}
+
+.design-selector-wrapper {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 25px 0;
+}
+
+.design-selector-group {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.design-label {
+    display: inline-block;
+    padding: 6px 25px;
+    color: #fff;
+    cursor: pointer;
+    background: inherit; /* Ensure no inline style overrides this */
+}
+
+.design-label:hover {
+    background: #39c2ff !important; /* Force the hover effect */
+}
+
+.design-radio {
+    display: none;
+}
+
+.professional-title {
+    text-align: center;
+    color: #005b96;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+    padding: 20px 0;
+}
+
+h2 {
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding: 0 20px;
+}
+
+.design-selector {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.designs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 0 5px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #005b96 #f8f9fa;
+    width: 100%;
+}
+
+.designs::-webkit-scrollbar {
+    height: 6px;
+}
+
+.designs::-webkit-scrollbar-thumb {
+    background: #005b96;
+    border-radius: 3px;
+}
+
+.designs::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.designs img {
+    width: 80px;
+    aspect-ratio: 1080 / 1610;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: border 0.3s ease;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin: 0 5px;
+}
+
+.designs img:hover, .designs img.selected {
+    border: 2px solid #005b96;
+}
+
+.info-input {
+    padding: 0 20px 30px;
+}
+
+.info-input table {
+    width: 100%;
+    border-spacing: 0 2px;
+}
+
+.info-input td {
+    padding: 6px 0;
+    vertical-align: middle;
+}
+
+.info-input label {
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.info-input input, .info-input textarea, .info-input select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.info-input textarea {
+    height: 80px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.info-input input:focus, .info-input textarea:focus, .info-input select:focus {
+    border-color: #005b96;
+    outline: none;
+}
+
+.name-style-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Increased gap for better spacing between elements */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.name-style-group label {
+    margin-right: 5px; /* Space between label and color picker */
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+.info-input #nameColor, .info-input #hoursColor {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.info-input #nameSize {
+    display: none; /* Ensure font size select is hidden */
+}
+
+.poster-preview {
+    padding: 0 20px 30px;
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.monitor-frame {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.poster {
+    position: relative;
+    width: 360px;
+    height: 534px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+#posterText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    line-height: normal;
+}
+
+#posterName, #posterHours, #posterContact {
+    position: absolute;
+    font-weight: 500;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Default positions (revert to original) */
+#posterName { top: 7%; left: 50%; transform: translateX(-50%); font-weight: 900; } 
+#posterHours { top: 50.5%; left: 33%; text-align: left; } 
+#posterContact { top: 65.2%; left: 33%; text-align: left; }
+
+/* Design-specific positioning (override defaults) */
+.design-type-A #posterName { top: 10%; left: 50%; transform: translateX(-50%); }
+.design-type-A #posterHours { top: 52%; left: 35%; }
+.design-type-A #posterContact { top: 65.5%; left: 35%; }
+
+.design-type-B #posterName { top: 12%; left: 50%; transform: translateX(-50%); }
+.design-type-B #posterHours { top: 85%; left: 5%; text-align:center }
+.design-type-B #posterContact { top: 75%; left: 5%; text-align:center; font-weight:900}
+
+.design-type-C #posterName { top: 21%; left: 50%; transform: translateX(-50%); }
+.design-type-C #posterHours { top: 47%; left: 5%;  text-align:center;font-weight: 900; }
+.design-type-C #posterContact { top: 35%; left: 5%;  text-align:center;font-weight: 900; }
+
+.design-type-D #posterName { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; } /*약사추천피로회복제세트*/
+.design-type-D #posterHours { top: 32%; left: 5%;  text-align:center;font-weight: 900; }/*약국상호*/
+.design-type-D #posterContact { top: 73%; left: 22%;  text-align:center;font-weight: 900; }/*힘찬활력에너지*/
+
+.design-type-E #posterName { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; } /*약사추천피로회복제세트*/
+.design-type-E #posterHours { top: 30%; left: 5%;  text-align:center;font-weight: 900; }/*약국상호*/
+.design-type-E #posterContact { top: 79%; left: 5%; text-align: center; font-weight: 900; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; display:none}
+
+@media (max-width: 500px) {
+    .design-type-A #posterName { top: 10%; }
+    .design-type-A #posterHours { top: 53%; left: 35%; }
+    .design-type-A #posterContact { top: 66%; left: 35%; }
+
+    .design-type-B #posterName { top: 12%; left: 50%; transform: translateX(-50%); }
+    .design-type-B #posterHours { top: 85%; left: 5%; text-align:center }
+    .design-type-B #posterContact { top: 75%; left: 5%; text-align:center; font-weight:900}
+
+    .design-type-C #posterName { top: 21%; }
+    .design-type-C #posterHours { top: 47%; left: 5%;  text-align:center }
+    .design-type-C #posterContact { top: 35%; left: 5%;  text-align:center;font-weight: 900;}
+
+    .design-type-D #posterName { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; } /*약사추천피로회복제세트*/
+    .design-type-D #posterHours { top: 32%; left: 5%;  text-align:center;font-weight: 900; }/*약국상호*/
+    .design-type-D #posterContact { top: 73%; left: 22%;  text-align:center;font-weight: 900; }/*힘찬활력에너지*/
+
+	.design-type-E #posterName { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; } /*약사추천피로회복제세트*/
+	.design-type-E #posterHours { top: 30%; left: 5%;  text-align:center;font-weight: 900; }/*약국상호*/
+	.design-type-E #posterContact { top: 79%; left: 5%; text-align: center; font-weight: 900; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; }
+}
+
+.preview-notice {
+    font-size: 14px;
+    color: #d9534f;
+    margin: -10px 0 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+    padding: 0 5px;
+}
+
+button {
+    padding: 8px 16px;
+    background: #0057ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #39c2ff;
+}
+
+button.reset {
+    background: #0057ff;
+}
+
+button.reset:hover {
+    background: #39c2ff;
+}
+
+/* 1024px 이상에서 레이아웃 변경 */
+@media (min-width: 1024px) {
+    .wrapper {
+        flex-direction: row;
+        justify-content: center; /* 좌우 가운데 정렬 */
+        align-items: flex-start; /* 위쪽 정렬 */
+        gap: 30px;
+    }
+
+    .container {
+        flex: 1;
+        max-width: 500px;
+        margin-bottom: 0; /* 1024px 이상에서는 간격 제거 */
+    }
+
+    .poster-preview {
+        flex: 1;
+        max-width: 500px;
+        margin-bottom: 0; /* 1024px 이상에서는 간격 제거 */
+        padding-top: 45px;
+    }
+
+    .poster {
+        width: 100%;
+        height: auto;
+        max-width: 360px;
+        aspect-ratio: 1080 / 1610;
+    }
+}
+
+/* 모바일 반응형 유지 */
+@media (max-width: 500px) {
+    body {
+        padding: 0;
+        padding-bottom: 30px; /* Ensure space for fixed navbar */
+    }
+
+    .container, .poster-preview {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .professional-title {
+        font-size: 28px;
+        padding: 15px 0;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding: 0 15px;
+    }
+
+    .design-selector {
+        padding: 10px 15px;
+    }
+
+    .designs {
+        padding: 0 5px 10px;
+    }
+
+    .designs img {
+        width: 60px;
+        margin: 0;
+    }
+
+    .design-label {
+        padding: 6px;
+    }
+
+    .poster-preview {
+        margin-bottom: 30px; /* Increase bottom margin to avoid overlap with navbar */
+        padding: 0;
+        padding-bottom: 30px; /* Additional internal padding if needed */
+    }
+
+    .poster {
+        width: 100%;
+        height: auto;
+        max-width: 360px;
+        aspect-ratio: 1080 / 1610;
+    }
+
+    .button-group {
+        padding: 0 5px;
+    }
+
+    /* Revert to default positions on mobile, with design-specific overrides */
+    #posterName {
+        top: 7%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #posterHours {
+        top: 50.5%;
+        left: 33%;
+    }
+
+    #posterContact {
+        top: 65.2%;
+        left: 33%;
+    }
+}

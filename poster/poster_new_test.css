@@ -1,0 +1,895 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+
+/* 전체 스타일 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgba(194, 194, 194, 0.5);
+    color: #1a202c;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* 상단 링크 스타일 */
+.top-bar {
+    background: #ffffff;
+    padding: 10px;
+    text-align: right;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 20; /* typeSelector보다 높은 z-index */
+}
+
+.top-bar a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.top-bar a:hover {
+    color: #1d4ed8;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px; /* 전체 콘텐츠 최대 너비 설정 */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 1024px 미만에서 가운데 정렬 */
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem; /* 섹션 간 간격 */
+}
+
+.design-selector-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.design-selector-group {
+    display: inline-block;
+    border-radius: 5px;
+    overflow: hidden;
+	margin-top:5px;
+}
+
+.design-label {
+    display: inline-block;
+    padding: 0px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: inherit; /* Ensure no inline style overrides this */
+}
+
+.design-label:hover {
+    background: #39c2ff !important; /* Force the hover effect */
+}
+
+.design-radio {
+    display: none;
+}
+
+.professional-title {
+    text-align: center;
+    color: #005b96;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+    padding: 20px 0;
+}
+
+h2 {
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding: 0 20px;
+}
+
+.design-selector {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.designs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 0 5px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #005b96 #f8f9fa;
+    width: 100%;
+}
+
+.designs::-webkit-scrollbar {
+    height: 6px;
+}
+
+.designs::-webkit-scrollbar-thumb {
+    background: #005b96;
+    border-radius: 3px;
+}
+
+.designs::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.designs img {
+    width: 45px;
+    aspect-ratio: 1080 / 1610;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: border 0.3s ease;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin: 0 5px;
+}
+
+.designs img:hover, .designs img.selected {
+    border: 2px solid #005b96;
+}
+
+.info-input {
+    padding: 0 20px 30px;
+}
+
+.info-input table {
+    width: 100%;
+    border-spacing: 0 2px;
+}
+
+.info-input td {
+    padding: 6px 0;
+    vertical-align: middle;
+}
+
+.info-input label {
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.info-input input, .info-input textarea, .info-input select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.info-input textarea {
+    height: 80px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.info-input input:focus, .info-input textarea:focus, .info-input select:focus {
+    border-color: #005b96;
+    outline: none;
+}
+
+.name-style-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Increased gap for better spacing between elements */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.name-style-group label {
+    margin-right: 5px; /* Space between label and color picker */
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+.info-input #nameColor, .info-input #hoursColor {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.info-input #nameSize {
+    display: none; /* Ensure font size select is hidden */
+}
+
+.poster-preview {
+    padding: 0 20px 30px;
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.monitor-frame {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.poster {
+    position: relative;
+    width: 360px;
+    height: 534px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+#posterText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    line-height: normal;
+}
+
+#posterField1, #posterField2, #posterField3, #posterExtra {
+    position: absolute;
+    font-weight: 500;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Default positions */
+#posterField1 { top: 7%; left: 50%; transform: translateX(-50%); font-weight: 900; } 
+#posterField2 { top: 50.5%; left: 33%; text-align: left; } 
+#posterField3 { top: 65.2%; left: 33%; text-align: left; }
+#posterExtra { top: 75.2%; left: 33%; text-align: left; }
+
+/* Design-specific positioning */
+.design-type-A #posterField1 { top: 10%; left: 50%; transform: translateX(-50%); }
+.design-type-A #posterField2 { top: 52%; left: 35%; }
+.design-type-A #posterField3 { top: 65.5%; left: 35%; }
+
+.design-type-B #posterField1 { top: 12%; left: 50%; transform: translateX(-50%); text-align:right}
+.design-type-B #posterField2 { top: 85%; left: 5%; text-align:center }
+.design-type-B #posterField3 { top: 75%; left: 5%; text-align:center; font-weight:900}
+
+.design-type-C #posterField1 { top: 21%; left: 50%; transform: translateX(-50%); }
+.design-type-C #posterField2 { top: 47%; left: 5%;  text-align:center;font-weight: 900; }
+.design-type-C #posterField3 { top: 35%; left: 5%;  text-align:center;font-weight: 900; }
+
+.design-type-D #posterField1 { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; } 
+.design-type-D #posterField2 { top: 32%; left: 5%;  text-align:center;font-weight: 900; }
+.design-type-D #posterField3 { top: 73%; left: 22%;  text-align:center;font-weight: 900; }
+
+.design-type-E #posterField1 { top: 10%; left: 50%; transform: translateX(-50%); text-align:center;font-weight: 900; }
+.design-type-E #posterField2 { top: 30%; left: 5%;  text-align:center;font-weight: 900; }
+.design-type-E #posterField3 { top: 79%; left: 5%; text-align: center; font-weight: 900; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; display:none}
+
+.design-type-F #posterField1 { top: 10%; left: 50%; transform: translateX(-50%); }
+.design-type-F #posterField2 { top: 31%; left: 5%;  text-align:center;font-weight: 900;line-height:1.8em;}
+.design-type-F #posterField3 { top: 30%; left: 5%;  text-align:center;}
+.design-type-F #posterExtra { top: 60%; left: 5%;  text-align:center;}
+
+.design-type-G #posterField1 { top: 10%; left: 50%; transform: translateX(-50%); }
+.design-type-G #posterField2 { top: 40%; left: 5%;  text-align:center;font-weight: 900; line-height:34px;}
+.design-type-G #posterField3 { top: 23%; left: 5%;  text-align:center; }
+
+.design-type-H #posterField1 { top: 10%; left: 50%; transform: translateX(-50%); }
+.design-type-H #posterField2 { top: 28%; left: 5%;  text-align:center;font-weight: 900; line-height:40px;}
+
+.design-type-J #posterField1 { top: 9%;font-weight: 900;}
+.design-type-J #posterField2 { top: 40%; left: 5%; text-align: center; line-height:30px;font-weight: 900;}
+
+.design-type-K #posterField1 { top: 15%;}
+
+.design-type-L #posterField1 { top: 92%;font-weight: 900;}
+
+.design-type-M #posterField1 { top: 22%;font-weight: 900;}
+.design-type-M #posterField2 { top: 40%; left: 5%; text-align: center; line-height:40px;font-weight: 900;}
+
+.design-type-N #posterField1 { top: 88.5%;font-weight: 900;}
+.design-type-N #posterField2 { top: 40%; left: 5%; text-align: center; line-height:40px;font-weight: 900;}
+
+.design-type-O #posterField1 { top: 8%; left: 50%; transform: translateX(-50%); }
+.design-type-O #posterField2 { top: 69%; left: 5%;  text-align:center;font-weight: 900;}
+.design-type-O #posterField3 { top: 91%; left: 5%;  text-align:center; }
+
+
+/* Type I 전용 스타일 */
+.design-type-I #posterContainer {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.design-type-I #posterText {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.design-type-I #posterTopTitle { 
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translateX(-50%); 
+    color: white; 
+    font-weight: 500;
+    text-align: center;
+    width: 90%;
+    font-size: 18px;
+}
+
+.design-type-I #posterMainTitle { 
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%); 
+    color: #FFD700; 
+    font-weight: 900;
+    text-align: center;
+    width: 90%;
+    margin: 0;
+    font-size: 58px;
+}
+
+.design-type-I #posterPriceArea {
+    position: absolute;
+    top: 26%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%;
+}
+
+.design-type-I #posterRecommendArea {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.design-type-I #posterPharmacy { 
+    position: absolute;
+    bottom: 4%;
+    left: 50%;
+    transform: translateX(-50%); 
+    color: white; 
+    font-weight: 700;
+    text-align: center;
+    width: 90%;
+    margin: 0;
+    font-size: 24px;
+}
+
+.design-type-I #posterPrice { 
+    color: white; 
+    font-weight: 900;
+    display: inline-block;
+    margin: 0;
+    font-size: 32px;
+}
+
+.design-type-I #posterPriceDetail { 
+    color: white; 
+    font-weight: 400;
+    margin-top: -6px;
+    font-size: 12px;
+}
+
+.design-type-I #posterRecommendText { 
+    color: black; 
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 15px 0;
+    background: #FFD700;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.design-type-I #posterBenefits {
+    text-align: left;
+}
+
+.design-type-I #posterBenefit1, 
+.design-type-I #posterBenefit2, 
+.design-type-I #posterBenefit3, 
+.design-type-I #posterBenefit4 { 
+    color: #E91E63; 
+    font-weight: 600;
+    margin: 8px 0;
+    line-height: 1.3;
+    font-size: 24px;
+}
+
+
+
+.preview-notice {
+    font-size: 14px;
+    color: #d9534f;
+    margin: -10px 0 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+    padding: 0 5px;
+}
+
+button {
+    padding: 8px 16px;
+    background: #0057ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #39c2ff;
+}
+
+button.save {
+    background: #0057ff;
+}
+
+button.save:hover {
+    background: #39c2ff;
+}
+
+/* 1024px 이상에서 레이아웃 변경 */
+@media (min-width: 1024px) {
+    .wrapper {
+        flex-direction: row;
+        justify-content: center; /* 좌우 가운데 정렬 */
+        align-items: flex-start; /* 위쪽 정렬 */
+        gap: 30px;
+    }
+
+    .container {
+        flex: 1;
+        max-width: 500px;
+        margin-bottom: 60px; /* 1024px 이상에서는 간격 제거 */
+    }
+
+    .poster-preview {
+        flex: 1;
+        max-width: 500px;
+        margin-bottom: 0; /* 1024px 이상에서는 간격 제거 */
+        padding-top: 45px;
+    }
+
+    .poster {
+        width: 100%;
+        height: auto;
+        max-width: 360px;
+        aspect-ratio: 1080 / 1610;
+    }
+@media (min-width: 1024px) {
+
+  /* PC용 타입 선택기 추가 - 가로 배치 및 스타일 유지 */
+  .type-selector-panel.desktop {
+    display: block;
+    position: static;
+    width: 100%;
+    height: auto;
+    background: rgba(76, 175, 80, 0.95); /* 모바일과 동일한 배경색 */
+    border-left: none;
+    margin-bottom: 20px;
+    padding: 10px 0; /* 상하 패딩 추가 */
+  }
+  
+  .type-selector-panel.desktop .type-selector-toggle {
+    display: none; /* PC에서는 토글 버튼 숨김 */
+  }
+  
+  .type-selector-panel.desktop .type-selector-content {
+    padding: 0;
+    height: auto;
+    overflow: visible;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  
+  .type-selector-panel.desktop .type-selector-list {
+    display: flex;
+    flex-direction: row; /* 가로 배치 */
+    justify-content: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+	width: 1000px;
+	margin: 0 auto;
+  }
+  
+  .type-selector-panel.desktop .type-item {
+    width: 40px; /* 모바일과 동일한 크기 */
+    height: 40px; /* 모바일과 동일한 크기 */
+    margin: 0;
+    border: 2px solid #ddd; /* 모바일과 동일한 스타일 */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #666;
+  }
+  
+  .type-selector-panel.desktop .type-item:hover {
+    border-color: #39c2ff;
+    background: #e3f2fd;
+    color: #0057ff;
+    transform: scale(1.05);
+  }
+  
+  .type-selector-panel.desktop .type-item.active {
+    border-color: #0057ff;
+    background: #0057ff;
+    color: white;
+  }
+  
+  .type-selector-panel.desktop .type-label {
+    font-size: 14px; /* 모바일과 동일한 크기 */
+    font-weight: 700;
+  }
+  
+  .type-selector-panel.desktop .type-new-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4444;
+    color: white;
+    font-size: 11px;
+    padding: 1px 3px;
+    border-radius: 3px;
+    line-height: 1;
+    font-weight: 600;
+  }
+  
+  /* 데스크톱용 기존 타입 선택기 숨김 */
+  .design-selector-wrapper.desktop-only {
+    display: none;
+  }
+}
+}
+
+.type-item {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #666;
+    margin: 0 auto;
+}
+
+.type-item:hover {
+    border-color: #39c2ff;
+    background: #e3f2fd;
+    color: #0057ff;
+    transform: scale(1.05);
+}
+
+.type-item.active {
+    border-color: #0057ff;
+    background: #0057ff;
+    color: white;
+}
+
+.type-label {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.type-new-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4444;
+    color: white;
+    font-size: 11px;
+    padding: 1px 3px;
+    border-radius: 3px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+/* 오른쪽 고정 타입 선택창 스타일 - 모바일 전용 */
+.type-selector-panel {
+    display: none; /* 기본적으로 숨김 (데스크톱) */
+}
+
+.desktop-only {
+	display: block;
+}
+
+
+/* 모바일에서만 표시 - 500px 이하 */
+@media (max-width: 1023px) {
+
+    body {
+        padding: 0;
+        padding-bottom: 30px; /* Ensure space for fixed navbar */
+    }
+
+    .container, .poster-preview {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .professional-title {
+        font-size: 28px;
+        padding: 15px 0;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding: 0 15px;
+    }
+
+	.preview-notice {
+		margin:0;
+	}
+
+    .design-selector {
+        padding: 10px 15px;
+    }
+
+    .designs {
+        padding: 0 5px 10px;
+    }
+
+    .designs img {
+        width: 30px;
+        margin: 0;
+    }
+
+    .design-label {
+        padding: 0px;
+		width: 38px; /* 너비 고정 */
+		height: 38px; /* 높이 고정 */
+		text-align: center; /* 내부 텍스트 가운데 정렬 */
+		line-height: 38px; /* 수직 가운데 정렬을 위해 높이와 동일하게 설정 */
+    }
+
+    .poster-preview {
+        margin-bottom: 30px; /* Increase bottom margin to avoid overlap with navbar */
+        padding: 0;
+        padding-bottom: 30px; /* Additional internal padding if needed */
+    }
+
+    .poster {
+        width: 100%;
+        height: auto;
+        max-width: 360px;
+        aspect-ratio: 1080 / 1610;
+    }
+
+    .button-group {
+        padding: 0 5px;
+    }
+
+    /* Type I 모바일 스타일 조정 */
+    .design-type-I .info-input td {padding:0px}
+    .design-type-I .design-label {padding:0px;}
+    .design-type-I .info-input {padding:0px 20px 5px;}
+    .design-type-I .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .design-type-I .poster-preview {
+        padding-top:30px;
+    }
+    .design-type-I .container {
+        order: 0;
+    }
+
+    /* Revert to default positions on mobile, with design-specific overrides */
+    #posterField1 {
+        top: 7%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #posterField2 {
+        top: 50.5%;
+        left: 33%;
+    }
+
+    #posterField3 {
+        top: 65.2%;
+        left: 33%;
+    }
+
+    .type-selector-panel {
+        position: fixed;
+        top: 0; /* 원래대로 top: 0 유지 */
+        right: 0; /* 기본값을 열림 상태로 */
+        width: 65px;
+        height: 100vh; /* 원래대로 전체 높이 */
+        background: rgba(76, 175, 80, 0.95);
+        z-index: 10; /* top-bar보다 낮은 z-index로 설정 */
+        transition: right 0.3s ease;
+        border-left: 2px solid #e0e0e0;
+        display: block; /* 모바일에서만 표시 */
+    }
+    
+    .type-selector-panel.closed {
+        right: -60px; /* 닫힘 상태 */
+    }
+    
+    .type-selector-toggle {
+        position: absolute;
+        left: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 25px;
+        height: 50px;
+        background: #4CAF50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 6px 0 0 6px;
+        color: white;
+        font-size: 12px;
+        transition: background 0.3s ease;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        z-index: 15; /* 토글 버튼은 top-bar 위에 표시 */
+    }
+    
+    .type-selector-toggle:hover {
+        background: #66BB6A;
+    }
+    
+    .type-selector-content {
+        padding: 10px 5px;
+        height: 100%;
+        overflow-y: auto;
+        padding-bottom: 100px;
+        padding-top: 30px; /* top-bar 영역만큼 여백 추가 */
+    }
+    
+    /* 나머지 스타일은 동일... */
+    .type-selector-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .type-item {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: #ffffff;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        color: #666;
+        margin: 0 auto;
+    }
+    
+    .type-item:hover {
+        border-color: #39c2ff;
+        background: #e3f2fd;
+        color: #0057ff;
+        transform: scale(1.05);
+    }
+    
+    .type-item.active {
+        border-color: #0057ff;
+        background: #0057ff;
+        color: white;
+    }
+    
+    .type-label {
+        font-size: 14px;
+        font-weight: 700;
+    }
+    
+    .type-new-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #ff4444;
+        color: white;
+        font-size: 11px;
+        padding: 1px 3px;
+        border-radius: 3px;
+        line-height: 1;
+        font-weight: 600;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wrapper .poster-preview {
+        order: -1; /* poster-preview를 container보다 먼저 오게 합니다. */
+    }
+
+    .wrapper .container {
+        order: 1; /* container가 poster-preview 뒤에 오게 합니다. */
+    }	
+	
+    /* 모바일에서 wrapper 영역 보호 - 기본 열림 상태 */
+    .wrapper {
+        margin-right: 65px;
+    }
+    
+    /* 닫힌 상태일 때만 여백 제거 */
+    body:has(.type-selector-panel.closed) .wrapper {
+        margin-right: 0;
+    }
+    .desktop {
+        display: none;
+    }	
+}
