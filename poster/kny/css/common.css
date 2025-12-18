@@ -1,7 +1,7 @@
 :root {
     --font-normal: 'Pretendard', sans-serif;
     --font-serif: 'NotoSerif', serif;
-        --color-primary: #0057FF;
+    --color-primary: #0057FF;
     --color-secondary: #40609D;
     --color-sub-01: #F0F7FF;
     
@@ -191,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {font-size:inherit;font-family:var(--font-normal);}
 
 table {width: 100%;border-collapse: collapse;}
 table th,
-table td {padding: 8px;font-size: 13px;border: 1px solid #ddd;}
+table td {padding: 8px;font-size: 13px;border: 1px solid var(--color-border);}
 table th {background: #f8f8f8;}
 table td {}
 table td .help {font-size: 12px;color: #777;margin-top: 8px;}

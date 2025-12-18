@@ -1,4 +1,19 @@
 body {background: #f8f8f8;}
+.btn {display: block;width: max-content;padding: 8px 16px; border-radius: 5px; font-size: 14px; text-align: center;line-height: 1; transition: .4s;}
+.btn--normal {background: #000;color: #fff;}
+.btn--cancel {background: #df1313;color: #fff;}
+.btn--small {padding: 5px 10px;font-size: 12px;}
+.btn--big {padding: 12px 20px;font-size: 16px;font-weight: 500;}
+.btn--gray {background: #ddd;}
+.btn--primary {background: var(--color-primary);color: #fff;}
+@media all and (min-width:1025px) {
+    .btn--normal:hover {background: #555;}
+    .btn--cancel:hover {background: #c21818;}
+    .btn--gray:hover {background: #ccc;}
+    .btn--primary:hover {background: #40609D;}
+}
+
+
 
 #admin-wrapper {display: flex;align-items: flex-start;position: relative;}
 
@@ -79,4 +94,10 @@ body {background: #f8f8f8;}
 .poster-write__upload-file-item > p > strong {font-weight: 700;color: #df1313;}
 .poster-write__upload-file-item-input {display: flex;align-items: center;justify-content: space-between;font-size: 13px;}
 .poster-write__upload-file-item-input > input[type="file"] {}
-.poster-write__upload-file-item-input > span {text-align: right;}
+.poster-write__upload-file-item-input > span {text-align: right;color: #1d6be5;font-weight: 500;}
+.poster-write__field-table .field-group {}
+.poster-write__field-table .field-group:after {content: "";display: block;height: 8px;}
+.poster-write__field-table .field-group .field-group__delete {margin: 5px 0 0 auto;}
+.poster-write__field-add {margin: 10px 0 0 auto;}
+.poster-write__btn {display: flex;align-items: center;justify-content: center;gap: 10px;}
+.poster-write__btn .btn {width: 200px;}
